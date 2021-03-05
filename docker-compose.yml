@@ -3,17 +3,18 @@ version: "3.3"
 services:
   mssql-db:
     image: mcr.microsoft.com/mssql/server
+    restart: always
     ports:
-      - 62000:1433
+      - 55555:1433
     environment: 
       ACCEPT_EULA: Y
       SA_PASSWORD: "HelloW0rld"
   
   application:
-    image: boulundeasv/workouter
+    image: mrbacky/workouter
     environment: 
       ASPNETCORE_ENVIRONMENT: Development
     depends_on: 
       - mssql-db
     ports: 
-      - 61000:80
+      - 55555:80
