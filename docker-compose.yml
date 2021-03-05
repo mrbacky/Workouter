@@ -5,7 +5,7 @@ services:
     image: mcr.microsoft.com/mssql/server
     restart: always
     ports:
-      - 55555:1433
+      - 5000:1433
     environment: 
       ACCEPT_EULA: Y
       SA_PASSWORD: "HelloW0rld"
@@ -17,4 +17,4 @@ services:
     depends_on: 
       - mssql-db
     ports: 
-      - 55555:80
+      - 5001:80
