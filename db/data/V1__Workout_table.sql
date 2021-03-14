@@ -1,11 +1,8 @@
-CREATE TABLE [dbo].[Workout](
-    [Id] [int] IDENTITY(1,1) NOT NULL,
-    [TypeId] [int] NOT NULL 
+CREATE TABLE Workouts(
+    Id INT PRIMARY KEY IDENTITY (1, 1),
+    TypeId INT NOT NULL,
+    Distance FLOAT NOT NULL
+) CREATE TABLE WorkoutTypes(
+    Id INT PRIMARY KEY IDENTITY (1, 1),
+    Name VARCHAR (50) NOT NULL
 )
-
-
-CREATE TABLE [dbo].[WorkoutTypes](
-    [Id] [int] IDENTITY(1,1) NOT NULL,
-    [Name] [nvarchar](20) NOT NULL
-)
-
