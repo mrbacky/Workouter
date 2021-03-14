@@ -9,17 +9,19 @@ namespace DAL
     {
         public void Insert(double distance, int typeId)
         {
-            using(var con = WorkoutDatabase.GetConnection())
+            using (var con = WorkoutDatabase.GetConnection())
             {
-                con.Execute("INSERT INTO Workouts (Distance, TypeId) VALUES (@Distance, @TypeId)", new { Distance = distance, TypeId = typeId });
+                con.Execute("INSERT INTO Workouts (Distance, TypeId) VALUES (@Distance, @TypeId)",
+                    new {Distance = distance, TypeId = typeId});
             }
         }
 
         public IEnumerable<Workout> GetAllWorkouts()
         {
-            using(var con = WorkoutDatabase.GetConnection())
+            using (var con = WorkoutDatabase.GetConnection())
             {
-                return con.Query<Workout>("SELECT w.Id, w.Distance, wt.Name WorkoutType FROM Workouts w LEFT JOIN WorkoutTypes wt ON w.TypeId = wt.Id");
+                return con.Query<Workout>(
+                    "SELECT w.Id, w.Distance, wt.Name WorkoutType FROM Workouts w LEFT JOIN WorkoutTypes wt ON w.TypeId = wt.Id");
             }
         }
     }

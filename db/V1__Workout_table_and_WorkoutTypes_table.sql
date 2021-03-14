@@ -2,4 +2,7 @@ CREATE TABLE Workouts(
     Id INT PRIMARY KEY IDENTITY (1, 1),
     TypeId INT NOT NULL,
     Distance FLOAT NOT NULL
-) 
+) CREATE TABLE WorkoutTypes(
+    Id INT PRIMARY KEY IDENTITY (1, 1),
+    Name VARCHAR (50) NOT NULL
+)
